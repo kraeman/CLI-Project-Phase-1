@@ -1,5 +1,5 @@
 class HotelsByCity::Hotel
-    attr_accessor :caption, :latitude, :longitude
+    attr_reader :caption, :latitude, :longitude, :city
 
     @@all = []
 
