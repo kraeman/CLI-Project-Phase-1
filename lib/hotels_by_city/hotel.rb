@@ -7,6 +7,9 @@ class HotelsByCity::Hotel
         @caption = caption
         @latitude = latitude
         @longitude = longitude
-    
+    end
+
+    def self.
+        
     end
 end
