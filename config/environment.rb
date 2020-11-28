@@ -3,7 +3,7 @@ require 'net/http'
 require 'openssl'
 require 'json'
 require 'pry'
-require 'tty'
+require 'tty-cursor'
 require 'colorize'
 
 require_relative '..lib/hotels_by_city/city'

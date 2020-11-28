@@ -1,17 +1,23 @@
-require
+require 'pry'
 
 class CLI
-    def initialize
-        run
+
+    def begin
+        
     end
 
     def run
         print "Loading"
-        print
-        begin
+        3.times do
+            sleep 1
+            print "."
+        end
+        sleep 1
+        puts ""
+        puts "hello"
     end
-
-    def begin
-    end
+    
 
 end
+
+CLI.new.run
