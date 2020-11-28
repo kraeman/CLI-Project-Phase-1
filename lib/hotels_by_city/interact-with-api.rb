@@ -31,7 +31,7 @@ def choose_city(city)
                 puts ("Latitude: " + thingy["latitude"].to_s)
                 puts ("Longitude: " + thingy["longitude"].to_s)
                 puts "-"
-                binding.pry
+                # binding.pry
             end
 
         end

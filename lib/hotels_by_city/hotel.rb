@@ -1,0 +1,3 @@
+class HotelsByCity::Hotel
+
+end
