@@ -7,9 +7,10 @@ class HotelsByCity::Hotel
         @caption = caption
         @latitude = latitude
         @longitude = longitude
+        @@all << self
     end
 
-    def self.
-        
+    def self.all
+        @@all
     end
 end
