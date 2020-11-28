@@ -1,6 +1,13 @@
+require
+
 class CLI
+    def initialize
+        run
+    end
+
     def run
-        puts "Loading..."
+        print "Loading"
+        print
         begin
     end
 
