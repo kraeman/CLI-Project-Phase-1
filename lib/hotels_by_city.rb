@@ -28,8 +28,10 @@ def choose_city(city)
         thing["entities"].each do |thingy|
             if thingy["type"] == "HOTEL"
                 puts thingy["caption"]  
+                puts ("Latitude: " + thingy["latitude"].to_s)
+                puts ("Longitude: " + thingy["longitude"].to_s)
                 puts "-"
-                puts "latitude"
+                binding.pry
             end
 
         end
