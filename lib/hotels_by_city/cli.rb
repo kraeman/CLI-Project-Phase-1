@@ -1,4 +1,5 @@
 require 'pry'
+require 'colorize'
 
 class CLI
 
@@ -7,10 +8,10 @@ class CLI
     end
 
     def run
-        print "Loading"
+        print "Loading".colorize(:green)
         3.times do
             sleep 1
-            print "."
+            print ".".colorize(:red)
         end
         sleep 1
         puts ""
