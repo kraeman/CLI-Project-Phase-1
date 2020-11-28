@@ -3,7 +3,10 @@ class HotelsByCity::Hotel
 
     @@all = []
 
-    def initialize()
+    def initialize(caption, latitude, longitude)
+        @caption = caption
+        @latitude = latitude
+        @longitude = longitude
     
     end
 end
