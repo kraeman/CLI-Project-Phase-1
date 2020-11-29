@@ -3,10 +3,7 @@ require_relative '../config/environment.rb'
 
 class Getter
 
-    attr_accessor :hotel
-
-    def make_city(city)
-        @hotels = []
+    def get_city(city)
         array = city.split(" ")
         actual_city = array.join("%20")
         url = URI("https://hotels-com-free.p.rapidapi.com/suggest/v1.7/json?query="+actual_city+"&locale=en_US")
@@ -21,17 +18,9 @@ class Getter
         response = http.request(request)
 
 
-        JSON.parse(response.read_body)["suggestions"].each do |i|
-            i["entities"].each do |q|
-                 if q["type"] == "HOTEL"
-                    City.new()
-                end
-            end
-        end
+        City.new(city)
 
-    end
-    def choose_hotel(hotel)
-        
+        JSON.parse(response.read_body)["suggestions"]
     end
 end
 

@@ -10,4 +10,8 @@ class City
         @name = name
         @@all << self
     end
+
+    def self.create_from_api(info)
+        self.new
+    end
 end

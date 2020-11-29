@@ -12,6 +12,17 @@ class Hotel
         @@all << self
     end
 
+    def self.new_from_api(a)
+        a.each do |group|
+            group['entities'].each do |entity|
+                if entity["type"] == "HOTEL"
+                    self.new(entity["caption"], entity["latitude"], entity["longitude"])
+                end
+            end
+        end
+        
+    end
+
     def self.all
         @@all
     end

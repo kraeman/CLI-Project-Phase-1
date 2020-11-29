@@ -1,14 +1,15 @@
 require 'bundler/setup'
-Bundler.require(:default) 
+Bundler.require(:default, :development)
 require 'uri'
 require 'net/http'
 require 'openssl'
 require 'json'
 require 'tty-cursor'
 require 'colorize'
+require 'pry'
 
 require_relative '../lib/city'
-require_relative '../lib/interact-with-api'
+require_relative '../lib/interact_with_api'
 require_relative '../lib//hotel'
 require_relative '../lib/cli'
 
