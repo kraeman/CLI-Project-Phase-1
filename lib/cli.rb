@@ -15,10 +15,22 @@ class CLI
     def run
         puts "Enter any city in the U.S.A."
         city = gets.strip
+        search = Getter.new.choose_city(city)
+        if valid?
+            print_hotels(search)
+        else
+            # recursive okay?
+            run
+        end
+    end
 
+    def valid?
     end
 
     def print_hotels(city)
+    end
+
+    def print_hotel_info(hotel)
     end
     
 
