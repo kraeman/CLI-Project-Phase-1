@@ -1,6 +1,6 @@
-require_relative 'config/environment.rb'
+require_relative '../config/environment.rb'
 
-class HotelsByCity::Getter
+class Getter
     def choose_city(city)
         array = city.split(" ")
         actual_city = array.join("%20")

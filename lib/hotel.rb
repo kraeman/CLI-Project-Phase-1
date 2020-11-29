@@ -1,6 +1,6 @@
-require_relative 'config/environment.rb'
+require_relative '../config/environment.rb'
 
-class HotelsByCity::Hotel
+class Hotel
     attr_reader :caption, :latitude, :longitude, :city
 
     @@all = []

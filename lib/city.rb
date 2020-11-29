@@ -1,7 +1,7 @@
-require_relative 'config/environment.rb'
+require_relative '../config/environment.rb'
 
-class HotelsByCity::City
-    attr_accessor :name
+class City
+    attr_accessor :name, :hotel
 
 
     @@all = []

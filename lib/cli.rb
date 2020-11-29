@@ -1,6 +1,6 @@
-require '/cli-project-phase-1/config/environment.rb'
+require '../config/environment.rb'
 
-class HotelsByCity::CLI
+class CLI
 
 
     def run
