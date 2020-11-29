@@ -5,7 +5,7 @@ class Getter
 
     attr_accessor :hotel
 
-    def choose_city(city)
+    def make_city(city)
         @hotels = []
         array = city.split(" ")
         actual_city = array.join("%20")
@@ -24,7 +24,7 @@ class Getter
         JSON.parse(response.read_body)["suggestions"].each do |i|
             i["entities"].each do |q|
                  if q["type"] == "HOTEL"
-                    @hotels << q
+                    City.new()
                 end
             end
         end
