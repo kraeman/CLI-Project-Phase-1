@@ -19,7 +19,7 @@ class CLI
         if valid_city?
             hotels(search)
             puts "Choose a hotel with the arrow keys and slam that ENTER button for some sweet details!"
-            
+            print_hotel_info
 
         else
             # recursive okay?
