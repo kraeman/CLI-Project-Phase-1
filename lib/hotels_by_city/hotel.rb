@@ -1,3 +1,5 @@
+require_relative 'config/environment.rb'
+
 class HotelsByCity::Hotel
     attr_reader :caption, :latitude, :longitude, :city
 

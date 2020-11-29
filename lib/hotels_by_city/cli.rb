@@ -1,11 +1,7 @@
-require 'pry'
-require 'colorize'
+require '/cli-project-phase-1/config/environment.rb'
 
-class CLI
+class HotelsByCity::CLI
 
-    def begin
-        
-    end
 
     def run
         print "Loading".colorize(:green)
