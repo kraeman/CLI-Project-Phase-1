@@ -20,6 +20,8 @@ class CLI
             print_hotels(search)
         else
             # recursive okay?
+            puts "Maybe go back to geography class..."
+            sleep 1
             run
         end
     end
