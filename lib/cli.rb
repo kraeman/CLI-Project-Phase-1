@@ -16,8 +16,11 @@ class CLI
         puts "Enter any city in the U.S.A."
         city = gets.strip
         search = Getter.new.choose_city(city)
-        if valid?
-            print_hotels(search)
+        if valid_city?
+            hotels(search)
+            puts "Choose a hotel with the arrow keys and slam that ENTER button for some sweet details!"
+            
+
         else
             # recursive okay?
             puts "Maybe go back to geography class..."
@@ -26,10 +29,11 @@ class CLI
         end
     end
 
-    def valid?
+    def valid_city?
     end
 
-    def print_hotels(city)
+
+    def hotels(city)
     end
 
     def print_hotel_info(hotel)
