@@ -5,7 +5,7 @@ class CLI
     def start
         print "Loading".colorize(:green)
         3.times do
-            # sleep 1
+            sleep 1
             print ".".colorize(:red)
         end
         run
@@ -13,11 +13,12 @@ class CLI
 
     def run
         puts ""
-        puts "Enter the name of any city in the U.S.A.".colorize(:blue)
+        print "Enter the name of any city in the U.S.A.: ".colorize(:blue)
         city = gets.strip
-        search = Getter.new.get_city(city)
-        if valid_city?(search)
-            Hotel.new_from_api(search)
+        city_info = Getter.new.get_city_info(city)
+        if valid_city?(city_info)
+            city_object = City.create_from_api(city, city_info)
+            Hotel.new_from_city(city_object)
             i = 1
             Hotel.all.each do |hotel|
                 thing = hotel.caption.split(">")
@@ -26,22 +27,17 @@ class CLI
                 i += 1
             end
             puts "Choose a hotel with the arrow keys and slam that ENTER button for the hotels coordinates!"
-            
         else
-            # recursive okay?
-            puts "Maybe go back to geography class..."
-            sleep 1
             exit
-            run
-          
         end
     end
 
-    def valid_city?(city)
-       if city[0]["entities"] != []
+    def valid_city?(city_info)
+       if city_info[0]["entities"] != []
              true
         end
     end
+    
 
 
     def make_hotels_from_city(city)
@@ -55,4 +51,3 @@ class CLI
     
 
 end
-CLI.new.start

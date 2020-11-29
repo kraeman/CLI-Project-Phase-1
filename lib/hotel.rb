@@ -5,18 +5,19 @@ class Hotel
 
     @@all = []
 
-    def initialize(caption, latitude, longitude)
+    def initialize(caption, latitude, longitude, city)
         @caption = caption
         @latitude = latitude
         @longitude = longitude
+        @city = city
         @@all << self
     end
 
-    def self.new_from_api(a)
-        a.each do |group|
+    def self.new_from_city(c)
+        c.city_info.each do |group|
             group['entities'].each do |entity|
                 if entity["type"] == "HOTEL"
-                    self.new(entity["caption"], entity["latitude"], entity["longitude"])
+                    self.new(entity["caption"], entity["latitude"], entity["longitude"], c)
                 end
             end
         end

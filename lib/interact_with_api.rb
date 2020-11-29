@@ -3,7 +3,7 @@ require_relative '../config/environment.rb'
 
 class Getter
 
-    def get_city(city)
+    def get_city_info(city)
         array = city.split(" ")
         actual_city = array.join("%20")
         url = URI("https://hotels-com-free.p.rapidapi.com/suggest/v1.7/json?query="+actual_city+"&locale=en_US")
@@ -16,9 +16,6 @@ class Getter
         request["x-rapidapi-host"] = 'hotels-com-free.p.rapidapi.com'
 
         response = http.request(request)
-
-
-        City.new(city)
 
         JSON.parse(response.read_body)["suggestions"]
     end
