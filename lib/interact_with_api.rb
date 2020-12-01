@@ -12,9 +12,8 @@ class Getter
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
         request = Net::HTTP::Get.new(url)
-        request["x-rapidapi-key"] = "#{ENV['API_KEY']}"
+        request["x-rapidapi-key"] = ENV['API_KEY'].to_s
         request["x-rapidapi-host"] = 'hotels-com-free.p.rapidapi.com'
-
         response = http.request(request)
 
         JSON.parse(response.read_body)["suggestions"]

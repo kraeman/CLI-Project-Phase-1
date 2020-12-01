@@ -1,4 +1,4 @@
-require '../config/environment.rb'
+require_relative '../config/environment.rb'
 
 class CLI
 
@@ -16,6 +16,7 @@ class CLI
         print "Enter the name of any city in the U.S.A. to see hotels there: ".colorize(:blue)
         city = gets.strip
         city_info = Getter.new.get_city_info(city)
+     
         if valid_city?(city_info)
             city_object = City.create_from_api(city, city_info)
             Hotel.new_from_city(city_object)

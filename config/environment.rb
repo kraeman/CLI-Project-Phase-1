@@ -9,6 +9,8 @@ require 'colorize'
 require 'pry'
 require 'dotenv/load'
 
+
+
 require_relative '../lib/city'
 require_relative '../lib/interact_with_api'
 require_relative '../lib//hotel'
