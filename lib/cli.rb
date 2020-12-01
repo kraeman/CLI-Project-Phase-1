@@ -5,7 +5,7 @@ class CLI
     def start
         print "Loading".colorize(:green)
         3.times do
-            # sleep 1
+            sleep 1
             print ".".colorize(:red)
         end
         run
@@ -31,42 +31,23 @@ class CLI
                     hotels_in_city << hotel
                 end
             end
-            puts ""
-            puts "Input the number of the hotel you want the latitude and longitude for!"
-            number = gets.strip.to_i
-            print_hotel_info(hotels_in_city[number - 1])
             loop do
-                puts "try again (y/n)"
-                continue_response = gets.strip
-                if continue_response == "y" || continue_response == "Y"
-                    self.run
-                elsif continue_response == "n" || continue_response == "N"
-                    puts "Peace out!"
-                    sleep 1
-                    exit
+                puts ""
+                puts "Input the number of the hotel you want the latitude and longitude for!"
+                number = gets.strip.to_i
+                if number <= hotels_in_city.length && number >= 1 
+                    print_hotel_info(hotels_in_city[number - 1])
+                    break
                 else
                     puts "Not a valid response!"
                     sleep 1
                 end
             end
-
+            self.choice
         else
             puts "Maybe you should check a map..."
             sleep 1
-            loop do
-                puts "try again (y/n)"
-                continue_response = gets.strip
-                if continue_response == "y" || continue_response == "Y"
-                    self.run
-                elsif continue_response == "n" || continue_response == "N"
-                    puts "Peace out!"
-                    sleep 1
-                    exit
-                else
-                    puts "Not a valid response!"
-                    sleep 1
-                end
-            end
+           self.choice
         end
     end
 
@@ -89,6 +70,23 @@ class CLI
         puts "Latitude: " + hotel.latitude.to_s
         puts "Longitude: " + hotel.longitude.to_s
         puts "-------------------------------"
+    end
+
+    def choice
+        loop do
+            puts "try again (y/n)"
+            continue_response = gets.strip
+            if continue_response == "y" || continue_response == "Y"
+                self.run
+            elsif continue_response == "n" || continue_response == "N"
+                puts "Peace out!"
+                sleep 1
+                exit
+            else
+                puts "Not a valid response!"
+                sleep 1
+            end
+        end
     end
     
 
