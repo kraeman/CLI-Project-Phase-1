@@ -1,13 +1,14 @@
-require_relative '../config/environment.rb'
+
 
 class CLI
-
+    include Getter
     def start
         print "Loading".colorize(:green)
         3.times do
             sleep 1
             print ".".colorize(:red)
         end
+        sleep 1
         run
     end
 
@@ -15,10 +16,10 @@ class CLI
         puts ""
         print "Enter the name of any city in the U.S.A. to see hotels there: ".colorize(:blue)
         city = gets.strip
-        city_info = Getter.new.get_city_info(city)
+        city_info = get_city_info(city)
      
         if valid_city?(city_info)
-            city_object = City.create_from_api(city, city_info)
+            city_object = City.new(city, city_info)
             Hotel.new_from_city(city_object)
             i = 1
             hotels_in_city = []
@@ -34,12 +35,17 @@ class CLI
             loop do
                 puts ""
                 puts "Input the number of the hotel you want the latitude and longitude for!"
-                number = gets.strip.to_i
-                if number <= hotels_in_city.length && number >= 1 
-                    print_hotel_info(hotels_in_city[number - 1])
-                    break
+                number = gets.strip.to_f
+                if number.to_i == number
+                    if number <= hotels_in_city.length && number >= 1 
+                        print_hotel_info(hotels_in_city[number - 1])
+                        break
+                    else
+                        puts "Not a valid response!"
+                        sleep 1
+                    end
                 else
-                    puts "Not a valid response!"
+                    puts "Maybe go buy a calculator..."
                     sleep 1
                 end
             end
@@ -57,11 +63,6 @@ class CLI
         end
     end
     
-
-
-    def make_hotels_from_city(city)
-        Hotel.new_from_api(city)
-    end
 
     def print_hotel_info(hotel)
         puts "-------------------------------"

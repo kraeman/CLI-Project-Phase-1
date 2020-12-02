@@ -1,7 +1,7 @@
-require_relative '../config/environment.rb'
 
 
-class Getter
+
+module Getter
 
     def get_city_info(city)
         array = city.split(" ")
@@ -15,6 +15,7 @@ class Getter
         request["x-rapidapi-key"] = '7460f033dfmsh3a061e65e47e0c6p1931cdjsnfa4fa275cedd'
         request["x-rapidapi-host"] = 'hotels-com-free.p.rapidapi.com'
         response = http.request(request)
+    
 
         JSON.parse(response.read_body)["suggestions"]
     end

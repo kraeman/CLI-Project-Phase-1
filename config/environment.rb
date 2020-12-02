@@ -1,5 +1,5 @@
 require 'bundler/setup'
-Bundler.require(:default, :development)
+# Bundler.require(:default, :development)
 require 'uri'
 require 'net/http'
 require 'openssl'

@@ -1,4 +1,4 @@
-require_relative '../config/environment.rb'
+
 
 class Hotel
     attr_reader :caption, :latitude, :longitude, :city
@@ -17,7 +17,7 @@ class Hotel
         c.city_info.each do |group|
             group['entities'].each do |entity|
                 if entity["type"] == "HOTEL"
-                    self.new(entity["caption"], entity["latitude"], entity["longitude"], c)
+                    self.new(entity["name"], entity["latitude"], entity["longitude"], c)
                 end
             end
         end
