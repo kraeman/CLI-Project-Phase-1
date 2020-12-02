@@ -1,4 +1,4 @@
-require_relative '../config/environment.rb'
+
 
 describe CLI do
     cli = CLI.new

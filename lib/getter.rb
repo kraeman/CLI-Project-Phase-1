@@ -1,6 +1,3 @@
-
-
-
 module Getter
 
     def get_city_info(city)

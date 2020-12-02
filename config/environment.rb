@@ -11,7 +11,7 @@ require 'dotenv/load'
 
 
 require_relative '../lib/city'
-require_relative '../lib/interact_with_api'
+require_relative '../lib/getter'
 require_relative '../lib//hotel'
 require_relative '../lib/cli'
 

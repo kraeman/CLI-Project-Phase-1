@@ -1,7 +1,7 @@
 
 
 class City
-    attr_accessor :name, :city_info
+    attr_reader :name, :city_info
 
     @@all = []
 
