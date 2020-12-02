@@ -12,6 +12,7 @@ module Getter
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
         request = Net::HTTP::Get.new(url)
+        #Leaving API key exposed for educational purposes. dotenv not compatible with BIgSur on 12/03/20
         request["x-rapidapi-key"] = '7460f033dfmsh3a061e65e47e0c6p1931cdjsnfa4fa275cedd'
         request["x-rapidapi-host"] = 'hotels-com-free.p.rapidapi.com'
         response = http.request(request)

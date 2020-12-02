@@ -14,6 +14,7 @@ class CLI
 
     def run
         puts ""
+        puts ""
         print "Enter the name of any city in the U.S.A. to see hotels there: ".colorize(:blue)
         city = gets.strip
         city_info = get_city_info(city)
@@ -60,7 +61,6 @@ class CLI
                 if hotel.city == city_object
                     hotel_caption = hotel.caption.split(">")
                     puts "#{i.to_s}. " + hotel_caption.last.strip
-                    # self.print_hotel_info(hotel)
                     i += 1
                     hotels_in_city << hotel
                 end
