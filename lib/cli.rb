@@ -19,19 +19,8 @@ class CLI
         city_info = get_city_info(city)
      
         if valid_city?(city_info)
-            city_object = City.new(city, city_info)
-            Hotel.new_from_city(city_object)
-            i = 1
             hotels_in_city = []
-            Hotel.all.each do |hotel|
-                if hotel.city == city_object
-                    hotel_caption = hotel.caption.split(">")
-                    puts "#{i.to_s}. " + hotel_caption.last.strip
-                    # self.print_hotel_info(hotel)
-                    i += 1
-                    hotels_in_city << hotel
-                end
-            end
+            make_city_and_hotels(city, city_info, hotels_in_city)
             loop do
                 puts ""
                 puts "Input the number of the hotel you want the latitude and longitude for!"
@@ -63,6 +52,20 @@ class CLI
         end
     end
     
+    def make_city_and_hotels(city, city_info, hotels_in_city)
+        city_object = City.new(city, city_info)
+            Hotel.new_from_city(city_object)
+            i = 1
+            Hotel.all.each do |hotel|
+                if hotel.city == city_object
+                    hotel_caption = hotel.caption.split(">")
+                    puts "#{i.to_s}. " + hotel_caption.last.strip
+                    # self.print_hotel_info(hotel)
+                    i += 1
+                    hotels_in_city << hotel
+                end
+            end
+    end
 
     def print_hotel_info(hotel)
         puts "-------------------------------"
