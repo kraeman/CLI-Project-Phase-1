@@ -1,4 +1,4 @@
-module Getter
+module HotelsByCity::Getter
 
     def get_city_info(city)
         array = city.split(" ")

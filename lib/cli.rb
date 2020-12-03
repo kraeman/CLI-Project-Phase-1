@@ -1,7 +1,5 @@
-
-
-class CLI
-    include Getter
+class HotelsByCity::CLI
+    include HotelsByCity::Getter
     def start
         print "Loading".colorize(:green)
         3.times do
@@ -54,10 +52,10 @@ class CLI
     end
     
     def make_city_and_hotels(city, city_info, hotels_in_city)
-        city_object = City.new(city, city_info)
-            Hotel.new_from_city(city_object)
+        city_object = HotelsByCity::City.new(city, city_info)
+        HotelsByCity::Hotel.new_from_city(city_object)
             i = 1
-            Hotel.all.each do |hotel|
+            HotelsByCity::Hotel.all.each do |hotel|
                 if hotel.city == city_object
                     hotel_caption = hotel.caption.split(">")
                     puts "#{i.to_s}. " + hotel_caption.last.strip

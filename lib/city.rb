@@ -1,6 +1,4 @@
-
-
-class City
+class HotelsByCity::City
     attr_reader :name, :city_info
 
     @@all = []
